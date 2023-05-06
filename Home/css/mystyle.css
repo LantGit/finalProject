@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+.header {
+    padding: 100px;
+    text-align: center;
+    background: url(../images/Clinic2.jpg);
+    background-size: cover;
+    color: black;
+background-position: center;
+}
+
+.header h1 {
+    font-size: 40px;
+}
+
+.navbar{
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover{
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar a.active{
+    background-color: #666;
+    color: white;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side{
+    flex: 50%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.main{
+    flex: 50%;
+    background-color: white;
+    padding: 20px;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(39, 128, 100);
+}
+
+.fakeimg {
+    background-color: 100%;
+    padding: 20px;
+}
+
+.snowImage {
+    background: url(../images/Clinic\ 1.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.footer-links {
+    max-width: 945px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer ul {
+    margin: 0px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+}
+
+.footer-links ul li {
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+@media only sceen and (max-width: 700px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+
+@media only screen and (max-width: 680px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
