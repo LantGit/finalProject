@@ -112,3 +112,13 @@ footer ul {
         margin-top: 0;
     }
 }
+
+#fname_error{
+    visibility: hidden;
+    color: red;
+}
+
+#lname_error{
+    visibility: hidden;
+    color: red;
+}
