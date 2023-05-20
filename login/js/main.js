@@ -1,41 +1,56 @@
-var name = document.getElementById("username").value;
- 
-var valid_username_regex = /^[A-Za-z]+$/;
 
-   
-    var password = document.getElementById("password").value;
-    var valid_password_regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+(function ($) {
+    "use strict";
 
-    if(!(username.match(valid_username_regex)) || !(password.match(valid_password_regex))  ){
- 
-        if(!(username.match(valid_username_regex))){
+    /*==================================================================
+    [ Validate ]*/
+    var input = $('.validate-input .input100');
 
-         document.getElementById("username_error").style.visibility = "visible";
-         document.getElementById("username").style.borderColor = "red";
-          
-       }else
+    $('.validate-form').on('submit',function(){
+        var check = true;
 
-         if(!(password.match(valid_password_regex))){
+        for(var i=0; i<input.length; i++) {
+            if(validate(input[i]) == false){
+                showValidate(input[i]);
+                check=false;
+            }
+        }
 
-           document.getElementById("password_error").style.visibility = "visible";
-           document.getElementById("password").style.borderColor = "red";
-            
-         }else{
-  
-           document.getElementById("password_error").style.visibility = "hidden";
-           document.getElementById("password").style.borderColor = "black";
-  
-         }
-       return false;
+        return check;
+    });
 
 
-    }else{
+    $('.validate-form .input100').each(function(){
+        $(this).focus(function(){
+           hideValidate(this);
+        });
+    });
 
-       document.getElementById("username_error").style.visibility = "hidden";
-       document.getElementById("username").style.borderColor = "black";
-       document.getElementById("password_error").style.visibility = "hidden";
-       document.getElementById("password").style.borderColor = "black";
-       return true;
-
+    function validate (input) {
+        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
+            }
+        }
+        else {
+            if($(input).val().trim() == ''){
+                return false;
+            }
+        }
     }
 
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).addClass('alert-validate');
+    }
+
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).removeClass('alert-validate');
+    }
+    
+    
+
+})(jQuery);
